@@ -56,7 +56,7 @@
 .res-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     flex-wrap: wrap;
 }
 
@@ -84,4 +84,9 @@
 .toggle-btn {
   padding: 8px;
   border-radius: 5px;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
 }

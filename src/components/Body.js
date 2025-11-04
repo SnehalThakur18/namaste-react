@@ -2,11 +2,14 @@ import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [listOfFilteredRestaurant, setListOfFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const onlineStatus = useOnlineStatus();
+  console.log("online status>>>>>>",onlineStatus);
 
   useEffect(() => {
     fetchData();
@@ -25,6 +28,12 @@ const Body = () => {
     setListOfRestaurants(restaurantData);
     setListOfFilteredRestaurant(restaurantData);
   };
+
+  if (onlineStatus === false) {
+    return (
+      <h1>Looks like you're offline! Please check your internet connection.</h1>
+    );
+  }
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -67,8 +76,9 @@ const Body = () => {
       </div>
       <div className="res-container">
         {listOfFilteredRestaurant.map((restaurant) => {
-          const res = restaurant.info ? restaurant.info : restaurant;
-          const key = restaurant.info ? restaurant.info.id : restaurant.id;
+          const res = restaurant?.info ? restaurant?.info : restaurant;
+          const key = restaurant?.info ? restaurant?.info?.id : restaurant?.id;
+          console.log("show key>>>>>>>>>", key);
 
           return <RestaurantCard key={key} resData={res} />;
         })}

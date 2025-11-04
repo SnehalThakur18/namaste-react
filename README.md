@@ -48,5 +48,9 @@
 
 # React Hooks
 (Normal JS Utility Functions)
-*   useState() - Super powerful state variables in React
-*   useEffect() - 
+-   useState() - Super powerful state variables in React
+-   useEffect() 
+
+# Two types of routing in Web Apps
+- Client Side Routing
+- Server Side Routing

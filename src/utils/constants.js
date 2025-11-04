@@ -4,3 +4,4 @@ export const LOGO_URL =
   "https://png.pngtree.com/png-clipart/20220903/ourmid/pngtree-chef-restaurant-logo-png-image_6136204.png";
 export const CART_URL =
   "https://cdn-icons-png.flaticon.com/512/3225/3225209.png";
+export const MENU_API = "https://namastedev.com/api/v1/listRestaurantMenu/";
